@@ -17,25 +17,25 @@ The Praveshan selection process was both fun and exciting for me. Admittedly, I 
 
 ## Tasks Status
 
-| Column 1 | Column 2 | Column 3 |
+| TaskLisk | Description | Status |
 |:---------|:--------:|---------:|
-| Row 1    | Data 1   | Data 2   |
-| Row 2    | Data 3   | Data 4   |
-| Row 3    | Data 5   | Data 6   |
-| Row 4    | Data 7   | Data 8   |
-| Row 5    | Data 9   | Data 10  |
-| Row 6    | Data 11  | Data 12  |
-| Row 7    | Data 13  | Data 14  |
-| Row 8    | Data 15  | Data 16  |
-| Row 9    | Data 17  | Data 18  |
-| Row 10   | Data 19  | Data 20  |
-| Row 11   | Data 21  | Data 22  |
-| Row 12   | Data 23  | Data 24  |
-| Row 13   | Data 25  | Data 26  |
-| Row 14   | Data 27  | Data 28  |
-| Row 15   | Data 29  | Data 30  |
-| Row 16   | Data 31  | Data 32  |
-| Row 17   | Data 33  | Data 34  |
+| Task-00   | Install Linux   | Completed   |
+| Task-01    | Terminal Wizard   | Not Completed |
+| Task-02    | Lessgo Hugo   | Not Completed   |
+| Task-03    | Hello,World!   | Not Completed   |
+| Task-04    | Competitive Programming   | Not Completed  |
+| Task-05    | Hypertext Mockup Language  | Not Completed  |
+| Task-06    | Cricket Vault  | Not Completed  |
+| Task-07    | Ak-47°C| Not Completed |
+| Task-08    | Poke-Search!  | Not Completed  |
+| Task-09   | GeoQuest  | Not Completed  |
+| Task-10   | RuskOS  | Not Completed  |
+| Task-11   | TinkerCAD  | Not Completed  |
+| Task-12   | Godot  | Not Completed  |
+| Task-13  | Vim  | Not Completed  |
+| Task-14   | Bandit  | Not Completed  |
+| Task-15   | Project Euler  | Not Completed  |
+|    |   |   |
 
 
 
