@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerminalTrolly Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        #terminal {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background: #000;
+            border: 2px solid #666;
+            border-radius: 5px;
+        }
+
+        #terminal-input {
+            width: 100%;
+            height: 50px;
+            background: #222;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #execute-btn {
+            width: 100%;
+            padding: 10px;
+            background: #555;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #execute-btn:hover {
+            background: #777;
+        }
+
+        #terminal-output {
+            white-space: pre-wrap;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            #terminal {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal">
+        <textarea id="terminal-input" placeholder="Type your command here..."></textarea>
+        <button id="execute-btn">Execute</button>
+        <pre id="terminal-output"></pre>
+    </div>
+    <script>
+        const apiUrl = 'https://fakestoreapi.com/products';
+        const conversionRate = 83; // 1 USD = 83 INR
+
+        let cart = [];
+        let products = [];
+
+        // Fetch products from the API
+        async function fetchProducts() {
+            try {
+                const response = await fetch(apiUrl);
+                products = await response.json();
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+        // Handle terminal commands
+        function handleCommand(command) {
+            const args = command.split(' ');
+            const cmd = args[0];
+           
+            switch (cmd) {
+                case 'list':
+                    return listProducts();
+                case 'details':
+                    return productDetails(args[1]);
+                case 'add':
+                    return addToCart(args[1]);
+                case 'remove':
+                    return removeFromCart(args[1]);
+                case 'cart':
+                    return viewCart();
+                case 'buy':
+                    return buyCart();
+                case 'clear':
+                    return clearTerminal();
+                case 'search':
+                    return searchProducts(args.slice(1).join(' '));
+                case 'sort':
+                    return sortProducts(args[1]);
+                default:
+                    return 'Unknown command.';
+            }
+        }
+
+        // List all products
+        function listProducts() {
+            return products.map(product => `${product.id}. ${product.title} - ₹${(product.price * conversionRate).toFixed(2)}`).join('\n');
+        }
+
+        // View product details
+        function productDetails(id) {
+            const product = products.find(p => p.id == id);
+            if (product) {
+                return `${product.title}\nPrice: ₹${(product.price * conversionRate).toFixed(2)}\nDescription: ${product.description}`;
+            } else {
+                return 'Product not found.';
+            }
+        }
+
+        // Add product to cart
+        function addToCart(id) {
+            const product = products.find(p => p.id == id);
+            if (product) {
+                cart.push(product);
+                return `Added ${product.title} to cart.`;
+            } else {
+                return 'Product not found.';
+            }
+        }
+
+        // Remove product from cart
+        function removeFromCart(id) {
+            const index = cart.findIndex(p => p.id == id);
+            if (index !== -1) {
+                const [removed] = cart.splice(index, 1);
+                return `Removed ${removed.title} from cart.`;
+            } else {
+                return 'Product not in cart.';
+            }
+        }
+
+        // View cart
+        function viewCart() {
+            if (cart.length === 0) {
+                return 'Cart is empty.';
+            }
+            return cart.map(p => `${p.title} - ₹${(p.price * conversionRate).toFixed(2)}`).join('\n');
+        }
+
+        // Proceed to checkout
+        function buyCart() {
+            if (cart.length === 0) {
+                return 'Cart is empty.';
+            }
+            const totalPrice = cart.reduce((sum, p) => sum + p.price, 0) * conversionRate;
+            const cartContents = cart.map(p => `${p.title} - ₹${(p.price * conversionRate).toFixed(2)}`).join('\n');
+            return `Cart contents:\n${cartContents}\nTotal price: ₹${totalPrice.toFixed(2)}`;
+        }
+
+        // Clear terminal output
+        function clearTerminal() {
+            document.getElementById('terminal-output').textContent = '';
+        }
+
+        // Search products
+        function searchProducts(name) {
+            const results = products.filter(p => p.title.toLowerCase().includes(name.toLowerCase()));
+            if (results.length === 0) {
+                return 'No products found.';
+            }
+            return results.map(p => `${p.id}. ${p.title} - ₹${(p.price * conversionRate).toFixed(2)}`).join('\n');
+        }
+
+        // Sort products
+        function sortProducts(criteria) {
+            if (criteria === 'price') {
+                products.sort((a, b) => a.price - b.price);
+            } else if (criteria === 'name') {
+                products.sort((a, b) => a.title.localeCompare(b.title));
+            }
+            return listProducts();
+        }
+
+        // Handle execute button click
+        document.getElementById('execute-btn').addEventListener('click', () => {
+            const input = document.getElementById('terminal-input').value;
+            const output = handleCommand(input);
+            document.getElementById('terminal-output').textContent += `\n> ${input}\n${output}`;
+            document.getElementById('terminal-input').value = '';
+        });
+
+        // Initial fetch
+        fetchProducts();
+    </script>
+</body>
+</html>
+
