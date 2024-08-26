@@ -23,10 +23,10 @@ The Praveshan selection process was both fun and exciting for me. Admittedly, I 
 | Task-01    | Terminal Wizard   | Not Completed |
 | Task-02    | Lessgo Hugo   | Not Completed   |
 | Task-03    | Hello,World!   | Not Completed   |
-| Task-04 [View Folder]()   |  Gopal and his PagePal   | Completed  |
-| Task-05 [View Folder]()   | TerminalTrolly  | Not Completed  |
+| Task-04 [View Folder](https://github.com/Vinayak-2005-26/Vinayak-amfoss-tasks/tree/main/Task_4)   |  Gopal and his PagePal   | Completed  |
+| Task-05 [View Folder](https://github.com/Vinayak-2005-26/Vinayak-amfoss-tasks/tree/main/Task_5)   | TerminalTrolly  | Not Completed  |
 | Task-06    | Cricket Vault  | Not Completed  |
-| Task-07    | pirates_dilemma[View folder]()| Not Completed |
+| Task-07    | pirates_dilemma[View folder](https://github.com/Vinayak-2005-26/Vinayak-amfoss-tasks/tree/main/Task_7)| Not Completed |
 | Task-08    | Poke-Search!  | Not Completed  |
 | Task-09   | GeoQuest  | Not Completed  |
 | Task-10   | RuskOS  | Not Completed  |
