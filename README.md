@@ -24,7 +24,7 @@ The Praveshan selection process was both fun and exciting for me. Admittedly, I 
 | Task-02    | Lessgo Hugo   | Not Completed   |
 | Task-03    | Hello,World!   | Not Completed   |
 | Task-04 [View Folder](https://github.com/Vinayak-2005-26/Vinayak-amfoss-tasks/tree/main/Task_4)   |  Gopal and his PagePal   | Completed  |
-| Task-05    | Hypertext Mockup Language  | Not Completed  |
+| Task-05 [View Folder](https://github.com/Vinayak-2005-26/Vinayak-amfoss-tasks/tree/main/Task_5)   | TerminalTrolly  | Not Completed  |
 | Task-06    | Cricket Vault  | Not Completed  |
 | Task-07    | Ak-47°C| Not Completed |
 | Task-08    | Poke-Search!  | Not Completed  |
